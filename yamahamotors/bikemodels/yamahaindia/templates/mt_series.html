@@ -1,0 +1,142 @@
+{% extends 'menu.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yamaha MT Series</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    header {
+      background-color: #000;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #00aaff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .bike-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .bike-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+    }
+
+    .bike-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .bike-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .bike-content {
+      padding: 1rem;
+    }
+
+    .bike-content h2 {
+      color: #00aaff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bike-content p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #000;
+      color: #aaa;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Yamaha MT Series</h1>
+  </header>
+
+  <section class="intro">
+    <p>The Yamaha MT Series (Master of Torque) is built for thrill-seekers who love aggressive styling, agile handling, and raw power. Explore the popular MT bikes below.</p>
+  </section>
+
+  <section class="bike-list">
+
+    <!-- MT-15 -->
+    <div class="bike-card">
+      <img src="{% static 'YAMAHA MT-15.jpg' %}" alt="Yamaha MT-15" />
+      <div class="bike-content">
+        <h2>Yamaha MT-15 V2</h2>
+        <p>155cc | Liquid-cooled | 6-speed | LED Headlight | VVA Technology. A sporty streetfighter perfect for urban riding.</p>
+      </div>
+    </div>
+
+    <!-- MT-03 -->
+    <div class="bike-card">
+      <img src="{% static 'YAMAHA MT-03.jpg' %}" alt="Yamaha MT-03" />
+      <div class="bike-content">
+        <h2>Yamaha MT-03</h2>
+        <p>321cc | DOHC Twin Cylinder | Lightweight Frame | Dual-channel ABS. Designed for new riders looking to step into performance territory.</p>
+      </div>
+    </div>
+
+    <!-- MT-07 -->
+    <div class="bike-card">
+      <img src="{% static 'YAMAHA MT-07.jpg' %}" alt="Yamaha MT-07" />
+      <div class="bike-content">
+        <h2>Yamaha MT-07</h2>
+        <p>689cc | CP2 Twin Engine | Torque-rich ride | Sporty chassis. Popular in the middleweight class for its balance and agility.</p>
+      </div>
+    </div>
+
+    <!-- MT-09 -->
+    <div class="bike-card">
+      <img src="{% static 'YAMAHA MT-09.jpg' %}" alt="Yamaha MT-09" />
+      <div class="bike-content">
+        <h2>Yamaha MT-09</h2>
+        <p>890cc | CP3 Triple Engine | Quick Shifter | Ride-by-Wire | Premium styling. The ultimate performance naked bike in the MT family.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 Yamaha Motor India | MT Series Page</p>
+  </footer>
+
+</body>
+</html>
+{% endblock%}

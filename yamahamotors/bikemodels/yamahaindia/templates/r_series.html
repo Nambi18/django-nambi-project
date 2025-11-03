@@ -1,0 +1,220 @@
+{% extends 'menu.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamaha R-Series Bikes</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #yamaha-logo {
+            width: 150px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-family: 'Krona One', sans-serif;
+        }
+
+        /* Tab Navigation */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background-color: #1e1e1e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        .tab-button.active {
+            background-color: #0d0d0d;
+        }
+
+        .tab-button:hover {
+            background-color: #333;
+        }
+
+        /* Bike Model Details */
+        .model-details {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .bike-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bike-info img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .details {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .details h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .details ul li {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .details ul li strong {
+            font-weight: bold;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 768px) {
+            .bike-info {
+                flex-direction: column;
+            }
+
+            .bike-info img {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .details {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <img id="yamaha-logo" src="{% static 'Yamahalogo.jpg' %}" alt="Yamaha Logo">
+        <h1>Yamaha R-Series</h1>
+    </header>
+
+    <!-- Model Tabs -->
+    <div class="tab-container">
+        <button class="tab-button active" onclick="openModel('r1')">Yamaha R1</button>
+        <button class="tab-button" onclick="openModel('r3')">Yamaha R3</button>
+        <button class="tab-button" onclick="openModel('r6')">Yamaha R6</button>
+    </div>
+
+    <!-- Bike Model Details -->
+    <div class="model-details" id="r1">
+        <div class="bike-info">
+            <img src="{% static 'yamaha R1.jpg' %}"alt="Yamaha R1">
+            <div class="details">
+                <h2>Yamaha R1</h2>
+                <p>The Yamaha R1 is a high-performance motorcycle designed for track and street. With a 998cc engine, it's built for ultimate speed and handling.</p>
+                <ul>
+                    <li><strong>Engine:</strong> 998cc Inline 4</li>
+                    <li><strong>Power:</strong> 200hp</li>
+                    <li><strong>Top Speed:</strong> 186 mph</li>
+                    <li><strong>Price:</strong> $17,399</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="model-details" id="r3">
+        <div class="bike-info">
+            <img src="{% static 'yamaha R3.jpg' %}" alt="Yamaha R3">
+            <div class="details">
+                <h2>Yamaha R3</h2>
+                <p>The Yamaha R3 is a lightweight and agile sportbike designed for both new riders and seasoned professionals. Powered by a 321cc engine, it delivers an exciting ride.</p>
+                <ul>
+                    <li><strong>Engine:</strong> 321cc Parallel Twin</li>
+                    <li><strong>Power:</strong> 42hp</li>
+                    <li><strong>Top Speed:</strong> 140 mph</li>
+                    <li><strong>Price:</strong> $5,299</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="model-details" id="r6">
+        <div class="bike-info">
+            <img src="{% static 'yamaha R6.jpg' %}" alt="Yamaha R6">
+            <div class="details">
+                <h2>Yamaha R6</h2>
+                <p>The Yamaha R6 is the perfect blend of power and handling, featuring a 599cc inline-four engine. It’s designed for those who want to dominate both the track and the street.</p>
+                <ul>
+                    <li><strong>Engine:</strong> 599cc Inline 4</li>
+                    <li><strong>Power:</strong> 118hp</li>
+                    <li><strong>Top Speed:</strong> 160 mph</li>
+                    <li><strong>Price:</strong> $12,199</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // JavaScript to switch between bike models dynamically
+        function openModel(model) {
+            // Hide all models
+            const models = document.querySelectorAll('.model-details');
+            models.forEach(model => model.style.display = 'none');
+
+            // Show the selected model
+            const selectedModel = document.getElementById(model);
+            selectedModel.style.display = 'block';
+
+            // Set active tab
+            const tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`[onclick="openModel('${model}')"]`).classList.add('active');
+        }
+
+        // Initial display: Show Yamaha R1 by default
+        document.addEventListener('DOMContentLoaded', function() {
+            openModel('r1');
+        });
+    </script>
+</body>
+</html>
+{% endblock%}

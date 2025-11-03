@@ -1,0 +1,134 @@
+{% extends 'menu.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Yamaha Service</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #000;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 3rem 2rem;
+      gap: 2rem;
+    }
+
+    .contact-form, .contact-info {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .contact-form h2, .contact-info h2 {
+      margin-bottom: 1rem;
+      color: #0060aa;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background-color: #0060aa;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #004c86;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Yamaha Service Center</h1>
+  </header>
+
+  <section class="contact-container">
+
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form  method="post">
+        {% csrf_token %}
+        <lable for="name">YOUR NAME</lable>
+        <input type="text" id="name" name="name" required />
+        <lable for="email">EMAIL</lable>
+        <input type="email" id="email" name="email"  required />
+        <lable for="name">MESSAGE</lable>
+        <textarea id="message" name="message" rows="6" required></textarea>
+        <button type="submit">submit</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p><strong>Address:</strong> Yamaha Service Center, Main Street, Chennai, India</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Email:</strong> support@yamaha-service.in</p>
+      <p><strong>Working Hours:</strong> Mon - Sat: 9:00 AM - 6:00 PM</p>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 Yamaha Service Center | All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+{% endblock %}
